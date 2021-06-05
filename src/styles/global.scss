@@ -1,9 +1,232 @@
+@import "reset";
+@import "variables";
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+}
+
 html,
 body {
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
+  width: 100%;
+  height: 100vh;
+  background-color: $white;
+  margin: 0;
+  padding: 0;
+  font-family: "Work Sans", sans-serif;
+}
+
+.app {
+  padding: 24px;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  @media screen and (max-width: $screen-xl-max) {
+    max-width: 1600px;
+  }
+  @media screen and (max-width: $screen-lg-max) {
+    max-width: 900px;
+  }
+  @media screen and (max-width: $screen-md-max) {
+    max-width: 100%;
+  }
+  @media screen and (max-width: $screen-sm-max) {
+    max-width: 100%;
+  }
+  @media screen and (max-width: $screen-xs-max) {
+    max-width: 100%;
+  }
+  @media screen and (min-width: $screen-xl-max) {
+    max-width: 1400px;
+  }
+}
+
+// Navbar
+.navbar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .brand-logo {
+    height: 40px;
+    margin: 16px;
+  }
+}
+
+// main
+.main {
+  width: 100%;
+  display: flex;
+  margin-top: 24px;
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// post
+.post {
+  width: 100%;
+  margin: 24px 0;
+  display: inline-block;
+  &__head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    &--image {
+      width: 16px;
+      margin-right: 8px;
+    }
+    &--source {
+      font-size: 14px;
+      color: $grey-100;
+    }
+  }
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $grey-100;
+    font-weight: 100;
+    font-size: 12px;
+  }
+}
+
+.content {
+  width: 100%;
+  cursor: pointer;
+  &__title {
+    color: $grey;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  &__image {
+    width: 100%;
+    border-radius: 20px;
+  }
+  &__description {
+    font-size: 14px;
+    font-weight: 300;
+    text-align: justify;
+    color: $grey;
+    line-height: 24px;
+    margin: 16px 0;
+  }
+  &:hover {
+    h3.content__title {
+      color: $blue;
+    }
+  }
+}
+
+// posts-section
+.posts-section {
+  width: 100%;
+  margin: 0 16px;
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  &__scroll {
+    overflow-y: auto;
+    max-height: calc(100vh - 160px);
+    border-radius: 20px;
+  }
+}
+
+.posts {
+  &__categories {
+    max-width: calc((100vw / 3) - 126px);
+    border-bottom: 1px solid $grey-100;
+    margin: 16px 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    @media screen and (max-width: $screen-xl-max) {
+      max-width: calc((100vw / 3) - 50px);
+    }
+    @media screen and (max-width: $screen-lg-max) {
+      max-width: calc((100vw / 3) - 50px);
+    }
+    @media screen and (max-width: $screen-md-max) {
+      max-width: 100%;
+    }
+    @media screen and (max-width: $screen-sm-max) {
+      max-width: 100%;
+    }
+    @media screen and (max-width: $screen-xs-max) {
+      max-width: 100%;
+    }
+    @media screen and (min-width: $screen-xl-max) {
+      max-width: calc((100vw / 3) - 126px);
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &--overflow {
+      display: flex;
+      align-items: center;
+      a {
+        cursor: pointer;
+        font-weight: 100;
+        color: $grey-100;
+        padding: 16px 8px;
+        &.active {
+          font-weight: 600;
+          color: $grey;
+        }
+      }
+    }
+  }
+}
+
+.logout {
+  position: absolute;
+  right: 0;
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.login {
+  padding: 16px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $blue;
+  .logo {
+    height: 32px;
+    margin-bottom: 32px;
+  }
+  &__card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 48px 24px;
+    border-radius: 24px;
+    background: $white;
+    box-shadow: 0 2px 24px 8px $shadows;
+    min-height: 400px;
+    width: 100%;
+    max-width: 400px;
+  }
+  &__form {
+    width: 100%;
+    padding: 24px;
+  }
+  &__button {
+    background: $blue;
+    color: $white;
+    margin-top: 32px;
+  }
 }

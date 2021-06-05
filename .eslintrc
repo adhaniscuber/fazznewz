@@ -1,15 +1,17 @@
 {
     "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint"],
-    "overrides": [
-        {
-            "files": ["*.js"],
-            "rules": {
-                "@typescript-eslint/no-var-requires": "off"
-            }
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
         }
-    ],
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
     "env": {
         "node": true,
         "browser": true,
@@ -17,9 +19,13 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier/@typescript-eslint",
+        "plugin:react-hooks",
+        "plugin:react/recommended",
         "plugin:prettier/recommended"
-    ]
+    ],
+    "rules": {
+        "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off"
+    }
 }
