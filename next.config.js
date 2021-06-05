@@ -4,12 +4,6 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
-const config = {
-  devServer: {
-    proxy: {
-      "/api": "http://localhost:3000",
-    },
-  },
-};
+const config = {};
 
 module.exports = withPlugins([[withBundleAnalyzer]], config);

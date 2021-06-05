@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useAuth } from "@module/firebase/context";
 import { useEffect } from "react";
+import { FullSpinner } from "@components/content-loader";
 
 const LoggedInContent = ({ children }) => {
   const router = useRouter();
@@ -20,7 +21,7 @@ const LoggedInContent = ({ children }) => {
   }, [user, userIsLoading]);
 
   if (userIsLoading) {
-    return <h1>Loading...</h1>;
+    return <FullSpinner />;
   }
 
   return children;

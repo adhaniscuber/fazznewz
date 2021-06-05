@@ -17,6 +17,7 @@ const Categories = ({ selected, onChoose }) => {
         {categories.map((category) => {
           return (
             <a
+              key={category}
               onClick={() => onChoose(category)}
               className={category === selected ? "active" : ""}
             >

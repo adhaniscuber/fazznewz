@@ -1,5 +1,6 @@
-import IndonesiaNews from "./indonesia-news";
-import TopHeadlinesNews from "./indonesia-news";
+import TopHeadlinesNews from "./top-headlines-news";
+import FintechNews from "./fintech-news";
+import CustomsNews from "./custom-news";
 import LoggedInContent from "./logged-in-content";
 
-export { IndonesiaNews, TopHeadlinesNews, LoggedInContent };
+export { FintechNews, TopHeadlinesNews, LoggedInContent, CustomsNews };
