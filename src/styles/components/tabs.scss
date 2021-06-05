@@ -1,0 +1,17 @@
+.tabs {
+  width: 100%;
+  display: flex;
+  &__item {
+    padding: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    &--active {
+      font-weight: 600;
+    }
+  }
+  @media screen and (min-width: $screen-md-max) {
+    display: none;
+  }
+}
