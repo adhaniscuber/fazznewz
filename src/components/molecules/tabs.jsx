@@ -1,34 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
+import { activeTab } from "@redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 
-const Tabs = ({ onSelected }) => {
-  const [active, setActive] = useState("Headline");
+const Tabs = () => {
+  const dispatch = useDispatch();
+  const { tabActive, source } = useSelector(({ rootReducer }) => rootReducer);
 
-  const onSelect = label => {
-    setActive(label);
-    onSelected(label);
+  const handleActive = label => () => {
+    dispatch(activeTab(label));
   };
 
   return (
     <div className="tabs">
       <a
-        onClick={() => onSelect("Headline")}
+        onClick={handleActive("Headline")}
         className={`tabs__item ${
-          active === "Headline" && "tabs__item--active"
+          tabActive === "Headline" && "tabs__item--active"
         }`}
       >
         Headline
       </a>
       <a
-        onClick={() => onSelect("Fintech")}
-        className={`tabs__item ${active === "Fintech" && "tabs__item--active"}`}
+        onClick={handleActive("Fintech")}
+        className={`tabs__item ${
+          tabActive === "Fintech" && "tabs__item--active"
+        }`}
       >
         Fintech
       </a>
       <a
-        onClick={() => onSelect("Custom")}
-        className={`tabs__item ${active === "Custom" && "tabs__item--active"}`}
+        onClick={handleActive("Custom")}
+        className={`tabs__item ${
+          tabActive === "Custom" && "tabs__item--active"
+        }`}
       >
-        Custom
+        {source.label}
       </a>
     </div>
   );

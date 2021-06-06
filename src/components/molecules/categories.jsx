@@ -1,4 +1,7 @@
+import { updateCategory } from "@redux/actions";
+import { SET_CATEGORY } from "@redux/actions/types";
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 const categories = [
   "business",
@@ -10,18 +13,25 @@ const categories = [
   "technology",
 ];
 
-const Categories = ({ selected, onChoose }) => {
+const Categories = () => {
+  const dispatch = useDispatch();
+  const category = useSelector(({ rootReducer }) => rootReducer.category);
+
+  const handleCategory = value => () => {
+    dispatch(updateCategory(value));
+  };
+
   return (
     <div className="posts__categories">
       <div className="posts__categories--overflow">
-        {categories.map(category => {
+        {categories.map(item => {
           return (
             <a
-              key={category}
-              onClick={() => onChoose(category)}
-              className={category === selected ? "active" : ""}
+              key={item}
+              onClick={handleCategory(item)}
+              className={item === category ? "active" : ""}
             >
-              #{category}
+              #{item}
             </a>
           );
         })}

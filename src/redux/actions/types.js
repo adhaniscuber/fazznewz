@@ -1,3 +1,4 @@
-export const SET_NEWS_SOURCE = "SET_NEWS_SOURCE";
-export const GET_NEWS = "GET_NEWS";
-export const GET_NEWS_SOURCES = "GET_NEWS_SOURCES";
+export const SET_CATEGORY = "SET_CATEGORY";
+export const SET_ACTIVE_TAB = "SET_ACTIVE_TAB";
+export const SHOW_MODAL = "SHOW_MODAL";
+export const SET_SOURCE = "SET_SOURCE";

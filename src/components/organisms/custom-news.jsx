@@ -4,41 +4,43 @@ import useSWR from "swr";
 import qs from "qs";
 import { PostLoader } from "@components/content-loader";
 import { SourceModal } from "@components/molecules";
+import Error from "@components/molecules/error";
+import { useDispatch, useSelector } from "react-redux";
+import { showModalSource } from "@redux/actions";
 
 const fetcher = url => fetch(url).then(res => res.json());
 
-const CustomNews = ({ active }) => {
-  const [source, setSource] = useState({
-    label: "TechCrunch",
-    value: "techcrunch",
-  });
-  const [modalShow, setShow] = useState(false);
+const CustomNews = () => {
+  const dispatch = useDispatch();
+  const { tabActive, source, modalShow } = useSelector(
+    ({ rootReducer }) => rootReducer,
+  );
 
   const options = qs.stringify({
-    sources: source.label,
+    sources: source.value,
   });
 
   const { data, error } = useSWR(`/api/news/custom?${options}`, fetcher);
 
-  const handleChoose = newSource => {
-    setSource(newSource);
-    setShow(false);
+  const handleOpenModal = () => {
+    dispatch(showModalSource(true));
   };
 
   if (error) return <p>An error has occurred.</p>;
+  if (data?.status === "error") return <Error message={data?.message} />;
 
   return (
-    <div className={`posts-section ${!active && "tab--active"}`}>
+    <div className={`posts-section ${!tabActive && "tab--active"}`}>
       <div className="posts-section--custom-source">
         <h1>{source.label}</h1>
         <img
           className="settings"
           src="/assets/img/settings.svg"
           alt="settings"
-          onClick={() => setShow(true)}
+          onClick={handleOpenModal}
         />
       </div>
-      {modalShow && <SourceModal onClose={setShow} onSelect={handleChoose} />}
+      {modalShow && <SourceModal />}
       <div className="posts-section__scroll">
         {!data ? (
           <PostLoader />
