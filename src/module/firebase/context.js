@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     setAuthData({ ...authData, userIsLoading: true });
-    return onAuthStateChanged((user) => {
+    return onAuthStateChanged(user => {
       setAuthData({ user, userIsLoading: false });
     });
   }, []);

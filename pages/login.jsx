@@ -13,7 +13,7 @@ const LoginPage = () => {
           <img className="logo" src="/assets/img/logo.svg" />
           <form
             className="login__form"
-            onSubmit={(e) => {
+            onSubmit={e => {
               e.preventDefault();
 
               if (isLoading) {
@@ -36,7 +36,7 @@ const LoginPage = () => {
 
               setIsLoading(true);
 
-              signIn(email, password).catch((err) => {
+              signIn(email, password).catch(err => {
                 setIsLoading(false);
                 alert(err);
               });

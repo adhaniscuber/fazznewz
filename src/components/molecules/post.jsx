@@ -18,7 +18,12 @@ const Post = ({ data }) => {
       <a className="post__body" href={url} target="_blank">
         <div className="content">
           <h3 className="content__title">{title || "-"}</h3>
-          <img className="content__image" src={urlToImage} alt="content img" />
+          <img
+            loading="lazy"
+            className="content__image"
+            src={urlToImage}
+            alt="content img"
+          />
           <p className="content__description">{description || "-"}</p>
         </div>
       </a>

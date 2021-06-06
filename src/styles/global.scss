@@ -3,8 +3,11 @@
 @import "variables";
 @import "form";
 
+@import "components/navbar";
+@import "components/login";
 @import "components/post";
 @import "components/tabs";
+@import "components/modal";
 
 * {
   box-sizing: border-box;
@@ -48,31 +51,6 @@ body {
   }
 }
 
-// Navbar
-.navbar {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .brand-logo {
-    height: 40px;
-    margin: 16px;
-    @media screen and (max-width: $screen-md-max) {
-      height: 32px;
-      margin: 16px;
-    }
-    @media screen and (max-width: $screen-sm-max) {
-      height: 24px;
-      margin: 16px;
-    }
-    @media screen and (max-width: $screen-xs-max) {
-      height: 24px;
-      margin: 16px;
-    }
-  }
-}
-
 // main
 .main {
   width: 100%;
@@ -95,162 +73,6 @@ body {
   @media screen and (max-width: $screen-xs-max) {
     flex-direction: column;
     margin: 0;
-  }
-}
-
-// post
-.post {
-  width: 100%;
-  margin: 24px 0;
-  display: inline-block;
-  &__head {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-    &--image {
-      width: 16px;
-      margin-right: 8px;
-    }
-    &--source {
-      font-size: 14px;
-      color: $grey-100;
-    }
-  }
-  &__body {
-    text-decoration: none;
-  }
-  &__footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: $grey-100;
-    font-weight: 100;
-    font-size: 12px;
-  }
-}
-
-.content {
-  width: 100%;
-  cursor: pointer;
-  &__title {
-    color: $grey;
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-  &__image {
-    width: 100%;
-    border-radius: 20px;
-  }
-  &__description {
-    font-size: 14px;
-    font-weight: 300;
-    text-align: justify;
-    color: $grey;
-    line-height: 24px;
-    margin: 16px 0;
-  }
-  &:hover {
-    h3.content__title {
-      color: $blue;
-    }
-  }
-}
-
-// posts-section
-.posts-section {
-  width: 100%;
-  min-width: calc(100% / 3 - 32px);
-  margin: 0 16px;
-  h1 {
-    font-size: 24px;
-    font-weight: 600;
-    @media screen and (max-width: $screen-md-max) {
-      display: none;
-    }
-  }
-  &__scroll {
-    width: 100%;
-    overflow-y: auto;
-    max-height: calc(100vh - 200px);
-    border-radius: 20px;
-    margin-top: 24px;
-    &--headline {
-      max-height: calc(100vh - 266px);
-    }
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-  &--custom-source {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    img {
-      cursor: pointer;
-    }
-    @media screen and (max-width: $screen-md-max) {
-      display: none;
-    }
-  }
-  @media screen and (max-width: $screen-md-max) {
-    min-width: 100%;
-    margin: 0 ;
-  }
-  @media screen and (max-width: $screen-sm-max) {
-    min-width: 100%;
-    margin: 0 ;
-  }
-  @media screen and (max-width: $screen-xs-max) {
-    min-width: 100%;
-    margin: 0 ;
-  }
-}
-
-
-
-.logout {
-  position: absolute;
-  right: 0;
-  img {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-.login {
-  padding: 16px;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $blue;
-  .logo {
-    height: 32px;
-    margin-bottom: 32px;
-  }
-  &__card {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    padding: 48px 24px;
-    border-radius: 24px;
-    background: $white;
-    box-shadow: 0 2px 24px 8px $shadows;
-    min-height: 400px;
-    width: 100%;
-    max-width: 400px;
-  }
-  &__form {
-    width: 100%;
-    padding: 24px;
-  }
-  &__button {
-    background: $blue;
-    color: $white;
-    margin-top: 32px;
   }
 }
 
@@ -281,5 +103,3 @@ body {
   width: 32px;
   height: 32px;
 }
-
-

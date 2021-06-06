@@ -23,13 +23,13 @@ export const test = async () => {
   }
 };
 
-export const getNewsSources = () => (dispatch) => {
+export const getNewsSources = () => dispatch => {
   axios
     .get(
       `https://newsapi.org/v2/sources?language=en&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`,
     )
-    .then((res) => {
-      const allSources = res.data.sources.map((source) => {
+    .then(res => {
+      const allSources = res.data.sources.map(source => {
         return {
           value: source.id,
           label: source.name,
@@ -40,10 +40,10 @@ export const getNewsSources = () => (dispatch) => {
         payload: allSources,
       });
     })
-    .catch((err) => console.log(err));
+    .catch(err => console.log(err));
 };
 
-export const setNewsSource = (newsSource) => (dispatch) => {
+export const setNewsSource = newsSource => dispatch => {
   localStorage.setItem("newsSource", JSON.stringify(newsSource));
   console.log(newsSource);
   dispatch({
@@ -52,13 +52,13 @@ export const setNewsSource = (newsSource) => (dispatch) => {
   });
 };
 
-export const getNewsTopHeadline = () => (dispatch) => {
+export const getNewsTopHeadline = () => dispatch => {
   console.log(`rus`);
   newsapi.v2
     .everything({
       language: "en",
     })
-    .then((response) => {
+    .then(response => {
       response.articles.sort((a, b) => {
         var keyA = new Date(a.publishedAt),
           keyB = new Date(b.publishedAt);
@@ -74,13 +74,13 @@ export const getNewsTopHeadline = () => (dispatch) => {
     });
 };
 
-export const getNewsIndonesia = () => (dispatch) => {
+export const getNewsIndonesia = () => dispatch => {
   newsapi.v2
     .everything({
       country: "id",
       language: "id",
     })
-    .then((response) => {
+    .then(response => {
       response.articles.sort((a, b) => {
         var keyA = new Date(a.publishedAt),
           keyB = new Date(b.publishedAt);

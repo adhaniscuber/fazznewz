@@ -6,7 +6,7 @@ const Logout = () => {
     <a
       className="logout"
       onClick={() =>
-        signOut().catch((err) => {
+        signOut().catch(err => {
           alert(err);
         })
       }

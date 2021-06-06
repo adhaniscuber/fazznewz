@@ -7,6 +7,6 @@ import newsReducer from "./newsReducer";
 // import postReducer from "./postReducer";
 
 export default combineReducers({
-  news: newsReducer
+  news: newsReducer,
   // post: postReducer
 });

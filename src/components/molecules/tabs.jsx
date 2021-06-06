@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Tabs = ({ onSelected }) => {
   const [active, setActive] = useState("Headline");
 
-  const onSelect = (label) => {
+  const onSelect = label => {
     setActive(label);
     onSelected(label);
   };

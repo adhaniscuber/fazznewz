@@ -1,0 +1,23 @@
+.navbar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .brand-logo {
+    height: 40px;
+    margin: 16px;
+    @media screen and (max-width: $screen-md-max) {
+      height: 32px;
+      margin: 16px;
+    }
+    @media screen and (max-width: $screen-sm-max) {
+      height: 24px;
+      margin: 16px;
+    }
+    @media screen and (max-width: $screen-xs-max) {
+      height: 24px;
+      margin: 16px;
+    }
+  }
+}

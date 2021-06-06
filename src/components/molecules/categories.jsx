@@ -14,7 +14,7 @@ const Categories = ({ selected, onChoose }) => {
   return (
     <div className="posts__categories">
       <div className="posts__categories--overflow">
-        {categories.map((category) => {
+        {categories.map(category => {
           return (
             <a
               key={category}

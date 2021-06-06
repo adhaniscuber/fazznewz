@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import { Navbar, Tabs } from "@components/molecules";
 import { LoggedInContent } from "@components/organisms";
@@ -10,16 +10,21 @@ const FintechNews = dynamic(() => import("@components/organisms/fintech-news"));
 const CustomsNews = dynamic(() => import("@components/organisms/custom-news"));
 
 const Home = () => {
+  const [tabActive, setTabActive] = useState("Headline");
+
   return (
     <LoggedInContent>
       <div className="app">
         <div className="container">
           <Navbar />
-          <Tabs />
+          <Tabs onSelected={setTabActive} />
           <div className="main">
-            <TopHeadlinesNews title="Top Headline" />
-            <FintechNews title="Fintech" />
-            <CustomsNews />
+            <TopHeadlinesNews
+              title="Top Headline"
+              active={tabActive === "Headline"}
+            />
+            <FintechNews title="Fintech" active={tabActive === "Fintech"} />
+            <CustomsNews active={tabActive === "Custom"} />
           </div>
         </div>
       </div>

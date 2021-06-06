@@ -14,7 +14,7 @@ const initFirebase = async () => {
   }
 };
 
-export const onAuthStateChanged = async (callback) => {
+export const onAuthStateChanged = async callback => {
   initFirebase();
 
   return firebase.auth().onAuthStateChanged(callback);
