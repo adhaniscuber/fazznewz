@@ -2,7 +2,7 @@ import Spinner from "@components/content-loader/spinner";
 import { useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
 import useSWR from "swr";
-import { showModalSource } from "@redux/actions";
+import { showModalSource, updateSource } from "@redux/actions";
 
 const fetcher = url => fetch(url).then(res => res.json());
 
@@ -45,7 +45,11 @@ const SourceModal = () => {
         ) : (
           <ul className="source__list">
             {sources?.map((source, index) => (
-              <li key={index} className="source__item" onClick={handleSource()}>
+              <li
+                key={index}
+                className="source__item"
+                onClick={handleSource(index)}
+              >
                 <a href="">{source.label}</a>
               </li>
             ))}

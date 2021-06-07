@@ -1,5 +1,4 @@
 import { updateCategory } from "@redux/actions";
-import { SET_CATEGORY } from "@redux/actions/types";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
