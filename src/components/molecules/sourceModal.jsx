@@ -21,8 +21,8 @@ const SourceModal = () => {
     });
   };
 
-  const handleSource = index => () => {
-    dispatch(updateSource(sources[index]));
+  const handleSource = source => () => {
+    dispatch(updateSource(source));
   };
 
   const handleClose = () => {
@@ -48,7 +48,7 @@ const SourceModal = () => {
               <li
                 key={index}
                 className="source__item"
-                onClick={handleSource(index)}
+                onClick={handleSource(source)}
               >
                 <a href="">{source.label}</a>
               </li>
